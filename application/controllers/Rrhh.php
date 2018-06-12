@@ -1274,6 +1274,10 @@ public function editar_trabajador(){
 			$saldoinicvacaciones = $this->input->post('vacaciones_legales');
 			$saldoinicvacprog = $this->input->post('vacaciones_progresivas');
 			$fecingreso = $this->input->post('datepicker2');
+			$fecha_retiro = $this->input->post('fecha_retiro');
+			$fecha_finiquito = $this->input->post('datepicker4');
+
+
 			$fecha_inicio_vacaciones = $this->input->post('fecha_inicio_vacaciones');
 			$tipocontrato = $this->input->post('tipocontrato');
 			$tallapantalon = $this->input->post('pantalon');
@@ -1293,6 +1297,8 @@ public function editar_trabajador(){
 			$seguro_cesantia = $this->input->post('seguro_cesantia') == 'on' ? 1 : 0;;
 			$region = $this->input->post('region');
 			$comuna = $this->input->post('comuna');
+
+
 			$asig_individual = $this->input->post('asig_individual');
 			$asig_por_invalidez = $this->input->post('asig_por_invalidez');
 			$asig_maternal = $this->input->post('asig_maternal');
@@ -1314,6 +1320,15 @@ public function editar_trabajador(){
 
 			$date = DateTime::createFromFormat('d/m/Y', $fecingreso);
 			$fecingreso = $date->format('Ymd');
+
+			$date = DateTime::createFromFormat('d/m/Y', $fecha_retiro);
+			$fecha_retiro = $date->format('Ymd');
+
+
+			$date = DateTime::createFromFormat('d/m/Y', $fecha_finiquito);
+			$fecha_finiquito = $date->format('Ymd');
+
+
 			$date = DateTime::createFromFormat('d/m/Y', $fecnacimiento);
 			$fecnacimiento = $date->format('Ymd');
 			
@@ -1338,7 +1353,6 @@ public function editar_trabajador(){
 				//$seguro_cesantia =0;
 			}
 			
-					
 
 			$array_datos = array(
 								'id_empresa' => $this->session->userdata('empresaid'),
@@ -1385,6 +1399,9 @@ public function editar_trabajador(){
 								'saldoinicvacprog' => $saldoinicvacprog,
 								'tipocontrato' => $tipocontrato,
 								'fecingreso' => $fecingreso,
+								'fecha_retiro' => $fecha_retiro,
+								'fecha_finiquito' => $fecha_finiquito,
+								
 								'id_lugar_pago' => $lugar_pago,
 								'id_categoria' => $categoria,
 								'jubilado' => $jubilado,

@@ -147,15 +147,7 @@
 
 							                        </div>	
 													<div class='row'>
-								                          <div class='col-md-6'>
-								                            <div class="form-group">
-								                              <label for="rut">Email</label>
-								                                <div class="input-group">
-                                    							<span class="input-group-addon">@</span>
-								                             	<input type="text" name="email" id="email" class="form-control" placeholder="Email" size="40" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
-								                             	</div>
-								                            </div>
-								                          </div>
+
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                                <label for="nombre">Región</label> 
@@ -167,10 +159,6 @@
 																</select>
 								                            </div>
 								                          </div>
-
-							                        </div>	
-
-													<div class='row'>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              
@@ -178,9 +166,27 @@
 								                                <select name="comuna" id="comuna"  class="form-control">
 								                                  <option value="">Seleccione Comuna</option>
 								                                </select>
-								                                <input type="hidden" id="idcomuna" value="<?php echo $datos_form['idcomuna']; ?>" >
+								                                <input type="hidden" id="idcomuna"  >
 								                            </div> 
-								                          </div>														
+								                          </div>
+
+								                          
+
+
+							                        </div>	
+
+													<div class='row'>
+								                          				
+														<div class='col-md-6'>
+								                            <div class="form-group">
+								                              <label for="rut">Email</label>
+								                                <div class="input-group">
+                                    							<span class="input-group-addon">@</span>
+								                             	<input type="text" name="email" id="email" class="form-control" placeholder="Email" size="40" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
+								                             	</div>
+								                            </div>
+								                          </div>
+
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Tipo de Renta</label>
@@ -505,7 +511,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-								                                 <input placeholder="Fecha de Finiquito" class="form-control" id="datepicker4" type="text" value="">
+								                                 <input placeholder="Fecha de Finiquito" class="form-control" id="datepicker4"  name="datepicker4" type="text" value="">
 								                                 </div>
 								                            </div>
 								                          </div>
@@ -1339,7 +1345,120 @@ function VerificaRut(rut) {
 
 
 $(document).ready(function(){
+	$.ajax({type: "GET",
+		    		url: "<?php echo base_url();?>rrhh/datos_personal/<?php echo $idrut;?>", 
+		    		dataType: "json",
+		    		async: false,
+		    		success: function(datos_personal2){
+		      			$.each(datos_personal2,function(nombre) {
+		      			$("#nombre").val(this.nombre);
+		      			$("#rut").val(this.rut);
+		      			$("#apaterno").val(this.apaterno);
+		      			$("#amaterno").val(this.amaterno);
+		      			$("#direccion").val(this.direccion);
+		      			$("#email").val(this.email);	
+        				$("#nacionalidad").val(this.idnacionalidad);
+        				$("#sueldo_base").val(this.sueldobase);
+        				
 
+
+        				$("#ecivil").val(this.idecivil);
+        				$("#sexo").val(this.sexo);
+        				$("#fechanacimiento").val(this.fecnacimiento);
+        				$("#cargo").val(this.idcargo);
+        				$("#isapre").val(this.idisapre);
+        				$("#centro_costo").val(this.idcentrocosto);
+        				$("#afp").val(this.idafp);
+        				$("#datepicker2").val(this.fecingreso);
+        				$("#fecha_retiro").val(this.fecha_retiro);
+        				$("#datepicker4").val(this.fecha_finiquito);
+        				$("#fecha_inicio_vacaciones").val(this.fecinicvacaciones);
+        				$("#vacaciones_legales").val(this.saldoinicvacaciones);
+        				$("#vacaciones_progresivas").val(this.saldoinicvacprog);
+        				$("#polera").val(this.tallapolera);
+        				$("#pantalon").val(this.tallapantalon);
+        				$("#titulo").val(this.titulo);
+        				$("#licencia").val(this.idlicencia);
+        				$("#estudios").val(this.idestudio);
+        				$("#fono").val(this.fono);
+        				$("#numero_contrato_apv").val(this.nrocontratoapv);
+        				$("#apv").val(this.instapv);
+        				$("#tipo_cotizacion").val(this.tipocotapv);
+        				$("#monto_cotizacion_apv").val(this.cotapv);
+        				$("#monto_pactado").val(this.valorpactado);
+
+        				if(this.id_categoria == 0){
+        					$("#categoria").val('');	
+        				}else{
+        					$("#categoria").val(this.id_categoria);	
+        				}
+
+        				
+        				$("#lugar_pago").val(this.id_lugar_pago);
+        				$("#sindicato").val(this.sindicato);
+        				$("#jubilado").val(this.jubilado);
+        				$("#regimen_pago").val(this.rol_privado);
+        				$("#tramo").val(this.idasigfamiliar);
+        				$("#semana_corrida").val(this.semana_corrida);
+        				$("#tiporenta").val(this.tiporenta);
+        				$("#idioma").val(this.ididioma);
+        				$("#numficha").val(this.numficha);
+        				$("#datepicker5").val(this.fecafp);
+        				$("#datepicker6").val(this.fecafc);
+        				$("#region").val(this.idregion);
+        				
+        				$("#asig_individual").val(this.cargassimples);
+        				$("#asig_por_invalidez").val(this.cargasinvalidas);
+        				$("#asig_maternal").val(this.cargasmaternales);
+        				$("#banco").val(this.idbanco);
+        				$("#forma_pago").val(this.id_forma_pago);
+        				$("#cta_bancaria").val(this.nrocuentabanco);
+        				$("#tipo_documento").val(this.tipodocumento);
+        				$("#tipogratificacion").val(this.tipogratificacion);
+        				$("#beneficio").val(this.cbeneficio);
+        				$("#movilizacion").val(this.movilizacion);
+        				$("#colacion").val(this.colacion);
+        				$("#tipocontrato").val(this.tipocontrato);
+        				
+        				
+        				$("#idcomuna").val(this.idcomuna);
+						//console.log(this.idcomuna);
+        				
+        				if (this.pensionado ==1){
+        					//$("#pensionado").val(this.pensionado)
+        					$("#pensionado").attr('checked','checked');
+
+        				}else{
+        					$("#pensionado").attr('checked',false);
+        				}        				
+
+        				if (this.segcesantia ==1){
+        					$("#seguro_cesantia").val(this.segcesantia)
+        					document.getElementById("seguro_cesantia").checked = true;
+        					document.getElementById("datepicker6").disabled=false;
+
+        				}else{
+        					document.getElementById("seguro_cesantia").checked = false;
+        					document.getElementById("datepicker6").disabled=true;
+        				}
+
+
+        				if(this.tipogratificacion == 'MF'){
+        					$('#gratificacion').prop('disabled','');
+        					$("#gratificacion").val(this.gratificacion);
+        				}else{
+        					$('#gratificacion').prop('disabled','disabled');
+        				}
+        				
+        				$('#gratificacion').mask('000.000.000.000.000', {reverse: true});
+        				$('#movilizacion').mask('000.000.000.000.000', {reverse: true});
+        				$('#colacion').mask('000.000.000.000.000', {reverse: true});
+        				$('#sueldo_base').mask('000.000.000.000.000', {reverse: true});
+
+
+        				}
+        				)}
+        				});
 
     if($('#region').val() != ''){
       $.get("<?php echo base_url();?>admins/get_comunas/"+$('#region').val(),function(data){
@@ -1350,11 +1469,15 @@ $(document).ready(function(){
                     for(i=0;i<var_json.length;i++){
                       $('#comuna').append('<option value="' + var_json[i].idcomuna + '">' + var_json[i].nombre + '</option>');
                     }
-                    $("#comuna").val($('#idcomuna').val()); 
+
+
+	    			//console.log($('#idcomuna').val());
+    				$("#comuna").val($('#idcomuna').val());                     
       });
       // seleccionar comuna
 
     }	
+
 
   $('.numeros').keypress(function(event){
     if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 46){
@@ -1444,86 +1567,7 @@ $('#tipogratificacion').on('change',function(){
 
 });
 
-    $(function(){
-        
-    	$.ajax({type: "GET",
-		    		url: "<?php echo base_url();?>rrhh/datos_personal/<?php echo $idrut;?>", 
-		    		dataType: "json",
-		    		success: function(datos_personal2){
-		      			$.each(datos_personal2,function(nombre) {
-		      			$("#nombre").val(this.nombre);
-		      			$("#rut").val(this.rut);
-		      			$("#apaterno").val(this.apaterno);
-		      			$("#amaterno").val(this.amaterno);
-		      			$("#direccion").val(this.direccion);
-		      			$("#email").val(this.email);	
-        				$("#nacionalidad").val(this.idnacionalidad);
-        				$("#sueldo_base").val(this.sueldobase);
-        				$("#ecivil").val(this.idecivil);
-        				$("#sexo").val(this.sexo);
-        				$("#fechanacimiento").val(this.fecnacimiento);
-        				$("#cargo").val(this.idcargo);
-        				$("#isapre").val(this.idisapre);
-        				$("#centro_costo").val(this.idcentrocosto);
-        				$("#afp").val(this.idafp);
-        				$("#datepicker2").val(this.fecingreso);
-        				$("#fecha_inicio_vacaciones").val(this.fecinicvacaciones);
-        				$("#vacaciones_legales").val(this.saldoinicvacaciones);
-        				$("#vacaciones_progresivas").val(this.saldoinicvacprog);
-        				$("#polera").val(this.tallapolera);
-        				$("#pantalon").val(this.tallapantalon);
-        				$("#titulo").val(this.titulo);
-        				$("#licencia").val(this.idlicencia);
-        				$("#estudios").val(this.idestudio);
-        				$("#fono").val(this.fono);
-        				$("#numero_contrato_apv").val(this.nrocontratoapv);
-        				$("#apv").val(this.instapv);
-        				$("#tipo_cotizacion").val(this.tipocotapv);
-        				$("#monto_cotizacion_apv").val(this.cotapv);
-        				$("#monto_pactado").val(this.valorpactado);
-        				$("#categoria").val(this.id_categoria);
-        				$("#lugar_pago").val(this.id_lugar_pago);
-        				$("#sindicato").val(this.sindicato);
-        				$("#jubilado").val(this.jubilado);
-        				$("#regimen_pago").val(this.rol_privado);
-        				$("#tramo").val(this.idasigfamiliar);
-        				$("#semana_corrida").val(this.semana_corrida);
-        				$("#tiporenta").val(this.tiporenta);
-        				$("#idioma").val(this.ididioma);
-        				$("#numficha").val(this.numficha);
-        				$("#datepicker5").val(this.fecafp);
-        				$("#datepicker6").val(this.fecafc);
-        				$("#region").val(this.idregion);
-        				$("#asig_individual").val(this.cargassimples);
-        				$("#asig_por_invalidez").val(this.cargasinvalidas);
-        				$("#asig_maternal").val(this.cargasmaternales);
-        				$("#banco").val(this.idbanco);
-        				$("#forma_pago").val(this.id_forma_pago);
-        				$("#cta_bancaria").val(this.nrocuentabanco);
-        				$('#sueldo_base').mask('000.000.000.000.000', {reverse: true});
-        				
-        				if (this.pensionado ==1){
-        					//$("#pensionado").val(this.pensionado)
-        					$("#pensionado").attr('checked','checked');
 
-        				}else{
-        					$("#pensionado").attr('checked',false);
-        				}        				
-
-        				if (this.segcesantia ==1){
-        					$("#seguro_cesantia").val(this.segcesantia)
-        					document.getElementById("seguro_cesantia").checked = true;
-        					document.getElementById("datepicker6").disabled=false;
-
-        				}else{
-        					document.getElementById("seguro_cesantia").checked = false;
-        					document.getElementById("datepicker6").disabled=true;
-        				}
-        				
-        				}
-        				)}
-        				});
-    	});
 
 
 

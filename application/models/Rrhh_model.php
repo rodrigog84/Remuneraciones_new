@@ -1006,7 +1006,11 @@ public function save_horas_extraordinarias($array_trabajadores,$mes,$anno){
 				'format(fecafp,\'dd/MM/yyyy\',\'en-US\') as fecafp',
 				'idbanco',
 				'id_forma_pago',
-				'nrocuentabanco'
+				'nrocuentabanco',
+				'tipodocumento',
+				'cbeneficio',
+				'format(fecha_retiro,\'dd/MM/yyyy\',\'en-US\') as fecha_retiro',
+				'format(fecha_finiquito,\'dd/MM/yyyy\',\'en-US\') as fecha_finiquito' 
 
 				
 
