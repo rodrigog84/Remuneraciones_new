@@ -1010,7 +1010,16 @@ public function save_horas_extraordinarias($array_trabajadores,$mes,$anno){
 				'tipodocumento',
 				'cbeneficio',
 				'format(fecha_retiro,\'dd/MM/yyyy\',\'en-US\') as fecha_retiro',
-				'format(fecha_finiquito,\'dd/MM/yyyy\',\'en-US\') as fecha_finiquito' 
+				'format(fecha_finiquito,\'dd/MM/yyyy\',\'en-US\') as fecha_finiquito',
+				'id_motivo_egreso',
+				'id_tipocc',
+				'id_seccion',
+				'id_situacion',
+				'id_clase',
+				'id_ine',
+				'id_zona',
+				'format(fecrealcontrato,\'dd/MM/yyyy\',\'en-US\') as fecrealcontrato',
+				'format(primervenc,\'dd/MM/yyyy\',\'en-US\') as primervenc'
 
 				
 

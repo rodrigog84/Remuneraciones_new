@@ -395,7 +395,13 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Clase</label>
-								                             	<input type="text" name="clase" class="form-control" id="clase" placeholder="Clases" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
+																<select name="clase" id="clase" class="form-control">
+																	<option value="">Seleccione Clase</option>
+						                                    		<?php foreach ($clases as $clase) { ?>
+								                                      <?php $claseselected = $clase->id_clase == $datos_form['id_clase'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $clase->id_clase;?>" <?php echo $claseselected;?> ><?php echo $clase->nombre;?></option>
+								                                    <?php } ?>
+								                                   </select>
 
 								                            </div>
 								                          </div>
@@ -447,7 +453,13 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Tipo C.C</label>
-								                             	<input type="text" name="tipo_cc" class="form-control" id="tipo_cc" placeholder="Tipo CC" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
+																	<select name="tipo_cc" id="tipo_cc" class="form-control">
+																	<option value="">Seleccione Tipo CC</option>
+						                                    		<?php foreach ($tipo_cc as $tip_cc) { ?>
+								                                      <?php $tipoccselected = $tip_cc->id_tipocc == $datos_form['id_tipocc'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $tip_cc->id_tipocc;?>" <?php echo $tipoccselected;?> ><?php echo $tip_cc->nombre;?></option>
+								                                    <?php } ?>
+								                                   </select>	
 
 								                            </div>
 								                          </div>
@@ -548,11 +560,12 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                            	<label for="rut">Motivo de Egreso</label>
-																<select name="selector1" id="selector1" class="form-control">
-																	<option>Seleccione</option>
-																	<option>Dolore, ab unde modi est!</option>
-																	<option>Illum, fuga minus sit eaque.</option>
-																	<option>Consequatur ducimus maiores voluptatum minima.</option>
+																<select name="motivo_egreso" id="motivo_egreso" class="form-control">
+																	<option value="">Seleccione Motivo Egreso</option>
+						                                    		<?php foreach ($motivo_egreso as $motivo) { ?>
+								                                      <?php $motivoselected = $motivo->id_motivo == $datos_form['id_motivo'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $motivo->id_motivo;?>" <?php echo $motivoselected;?> ><?php echo $motivo->nombre;?></option>
+								                                    <?php } ?>
 																</select>
 								                            </div>
 								                          </div>
@@ -574,36 +587,34 @@
 								                          </div>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
-								                            	<label for="rut">Jornada de Trabajo</label>
-																<select name="selector1" id="selector1" class="form-control">
-																	<option>Seleccione</option>
-																	<option>Dolore, ab unde modi est!</option>
-																	<option>Illum, fuga minus sit eaque.</option>
-																	<option>Consequatur ducimus maiores voluptatum minima.</option>
-																</select>
+								                              <label for="rut">Sección</label>
+																<select name="seccion" id="seccion" class="form-control">
+																	<option value="">Seleccione Secci&oacute;n</option>
+						                                    		<?php foreach ($secciones as $seccion) { ?>
+								                                      <?php $seccionselected = $seccion->id_seccion == $datos_form['id_seccion'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $seccion->id_seccion;?>" <?php echo $seccionselected;?> ><?php echo $seccion->nombre;?></option>
+								                                    <?php } ?>
+								                                   </select>	
+
 								                            </div>
 								                          </div>
 
 							                        </div>		
 
 													<div class='row'>
-								                          <div class='col-md-6'>
-								                            <div class="form-group">
-								                              <label for="rut">Sección</label>
-																<input type="text" name="seccion" class="form-control" id="seccion" placeholder="Sección" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
 
-								                            </div>
-								                          </div>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                            	<label for="rut">Código Ine</label>
-																<input type="text" name="codigo_ine" class="form-control" id="codigo_ine" placeholder="Código Ine">
+																<select name="codigo_ine" id="codigo_ine" class="form-control">
+																	<option value="">Seleccione C&oacute;digo INE</option>
+						                                    		<?php foreach ($cod_ine as $ine) { ?>
+								                                      <?php $ineselected = $ine->id_ine == $datos_form['id_ine'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $ine->id_ine;?>" <?php echo $ineselected;?> ><?php echo $ine->nombre;?></option>
+								                                    <?php } ?>
+								                                   </select>																
 								                            </div>
 								                          </div>
-
-							                        </div>		
-
-							                        <div class='row'>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Sindicato</label>
@@ -615,6 +626,10 @@
 
 								                            </div>
 								                          </div>
+							                        </div>		
+
+							                        <div class='row'>
+
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                            	<label for="rut">Rol Privado</label>
@@ -625,11 +640,6 @@
 																</select>
 								                            </div>
 								                          </div>
-
-							                        </div>			
-
-
-							                        <div class='row'>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Semana Corrida</label>
@@ -640,39 +650,52 @@
 																</select>
 								                            </div>
 								                          </div>
+							                        </div>			
+
+
+							                        <div class='row'>
+
 								                          <div class='col-md-6'>
 									                           <div class="form-group">
-								                              <label for="rut">Sitio Laboral</label>
-																<input type="text" name="sitio_laboral" class="form-control" id="sitio_laboral" placeholder="Sitio Laboral" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
-
+								                              <label for="rut">Situaci&oacute;n Laboral</label>
+																<select name="situacion_laboral" id="situacion_laboral" class="form-control">
+																	<option value="">Seleccione Situaci&oacute;n Laboral</option>
+						                                    		<?php foreach ($situacion_laboral as $situacion) { ?>
+								                                      <?php $situacionselected = $situacion->id_situacion == $datos_form['id_situacion'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $situacion->id_situacion;?>" <?php echo $situacionselected;?> ><?php echo $situacion->nombre;?></option>
+								                                    <?php } ?>
+								                                   </select>
 								                            </div>
 								                          </div>
-
+								                          <div class='col-md-6'>
+								                            <div class="form-group">
+								                              <label for="rut">Zona Brecha</label>
+																<select name="zona_brecha" id="zona_brecha" class="form-control">
+																	<option value="">Seleccione Zona Brecha</option>
+						                                    		<?php foreach ($zonas_brechas as $zona_brecha) { ?>
+								                                      <?php $zonabrechaselected = $zona_brecha->id_zona == $datos_form['id_zona'] ? "selected" : ""; ?>
+								                                      <option value="<?php echo $zona_brecha->id_zona;?>" <?php echo $zonabrechaselected;?> ><?php echo $zona_brecha->nombre;?></option>
+								                                    <?php } ?>
+								                                   </select>
+								                            </div>
+								                          </div>
 							                        </div>		
 
 
 							                         <div class='row'>
-								                          <div class='col-md-6'>
-								                            <div class="form-group">
-								                              <label for="rut">Zona Brecha</label>
-																<input type="text" name="zona_brecha" class="form-control" id="zona_brecha" placeholder="Zona Brecha" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()">
-								                            </div>
-								                          </div>
+								                          
 								                          <div class='col-md-6'>
 									                           <div class="form-group">
-								                              <label for="rut">Fecha Real</label>
+								                              <label for="rut">Fecha Real Contrato</label>
 								                              <div class="input-group">
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="Fecha Real" class="form-control" id="fecha_real" type="text" value="" >
+																<input placeholder="Fecha Real" class="form-control" id="fecha_real" name="fecha_real" type="text" value="" >
 																</div>
 
 								                            </div>
 								                          </div>
-
-							                        </div>							                        					       
-							                        <div class='row'>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">1er Vencimiento</label>
@@ -680,11 +703,12 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="1er Vencimiento" class="form-control" id="vencimiento_1" type="text" value="" >
+																<input placeholder="1er Vencimiento" class="form-control" id="vencimiento_1" name="vencimiento_1" type="text" value="" >
 																</div>
 								                            </div>
 								                          </div>
-							                        </div>	                 
+							                        </div>							                        					       
+                
 
 												</section>
 											</div>
@@ -1370,6 +1394,9 @@ $(document).ready(function(){
         				$("#centro_costo").val(this.idcentrocosto);
         				$("#afp").val(this.idafp);
         				$("#datepicker2").val(this.fecingreso);
+        				$("#fecha_real").val(this.fecrealcontrato);
+        				$("#vencimiento_1").val(this.primervenc);
+
         				$("#fecha_retiro").val(this.fecha_retiro);
         				$("#datepicker4").val(this.fecha_finiquito);
         				$("#fecha_inicio_vacaciones").val(this.fecinicvacaciones);
@@ -1419,6 +1446,13 @@ $(document).ready(function(){
         				$("#movilizacion").val(this.movilizacion);
         				$("#colacion").val(this.colacion);
         				$("#tipocontrato").val(this.tipocontrato);
+        				$("#motivo_egreso").val(this.id_motivo_egreso);
+        				$("#tipo_cc").val(this.id_tipocc);
+        				$("#seccion").val(this.id_seccion);
+        				$("#situacion_laboral").val(this.id_situacion);
+        				$("#clase").val(this.id_clase);
+        				$("#codigo_ine").val(this.id_ine);
+        				$("#zona_brecha").val(this.id_zona);
         				
         				
         				$("#idcomuna").val(this.idcomuna);

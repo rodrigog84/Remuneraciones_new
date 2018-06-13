@@ -954,8 +954,15 @@ public function mod_trabajador($rut = null,$idtrabajador = null)
 			$jornada_trabajo = $this->admin->get_jornada_trabajo();
 			$categoria = $this->admin->get_categoria();
 			$lugar_pago= $this->admin->get_lugar_pago();
+			$motivo_egreso= $this->admin->get_motivo_egreso();
+			$tipo_cc= $this->admin->get_tipo_cc();
+			$secciones= $this->admin->get_seccion();
+			$situacion_laboral= $this->admin->get_situacion_laboral();
+			$clases= $this->admin->get_clases();
+			$cod_ine= $this->admin->get_ine();
+			$zonas_brechas= $this->admin->get_zona_brecha();
 			
-
+			//var_dump($motivo_egreso); exit;
 
 			$tramos_asig_familiar = $this->admin->get_tabla_asig_familiar();
 
@@ -1047,8 +1054,15 @@ public function mod_trabajador($rut = null,$idtrabajador = null)
 			$vars['lugar_pago'] = $lugar_pago;
 			$vars['bancos'] = $bancos;
 			$vars['forma_pago'] = $forma_pago;
+			$vars['motivo_egreso'] = $motivo_egreso;
+			$vars['tipo_cc'] = $tipo_cc;
+			$vars['secciones'] = $secciones;
+			$vars['situacion_laboral'] = $situacion_laboral;
+			$vars['clases'] = $clases;
 			$vars['tramos_asig_familiar'] = $tramos_asig_familiar;
 			$vars['jornada_trabajo'] = $jornada_trabajo;
+			$vars['cod_ine'] = $cod_ine;
+			$vars['zonas_brechas'] = $zonas_brechas;
 
 			$vars['icheck'] = true;
 			$vars['jqueryRut'] = true;
@@ -1098,6 +1112,8 @@ public function mod_trabajador($rut = null,$idtrabajador = null)
 			$apv = $this->admin->get_apv();
 			$categoria = $this->admin->get_categoria();
 			$lugar_pago= $this->admin->get_lugar_pago();
+			//$zonas_brechas= $this->admin->get_zona_brecha();
+
 
 
 			/**** CARGA DE DATOS TRABAJADOR ****/
@@ -1184,6 +1200,7 @@ public function mod_trabajador($rut = null,$idtrabajador = null)
 			$vars['datetimepicker'] = true;
 			$vars['categorias'] = $categoria;
 			$vars['lugar_pago'] = $lugar_pago;
+			//$vars['zonas_brechas'] = $zonas_brechas;
 			//$vars['icheck'] = true;
 			$vars['jqueryRut'] = true;
 			$vars['mask'] = true;
@@ -1276,7 +1293,10 @@ public function editar_trabajador(){
 			$fecingreso = $this->input->post('datepicker2');
 			$fecha_retiro = $this->input->post('fecha_retiro');
 			$fecha_finiquito = $this->input->post('datepicker4');
+			$fecrealcontrato = $this->input->post('fecha_real');
+			$primervenc = $this->input->post('vencimiento_1');
 
+			
 
 			$fecha_inicio_vacaciones = $this->input->post('fecha_inicio_vacaciones');
 			$tipocontrato = $this->input->post('tipocontrato');
@@ -1312,6 +1332,16 @@ public function editar_trabajador(){
 			$diastrabajo = $this->input->post('diastrabajo');
 			$horasdiarias = $this->input->post('horasdiarias');
 			$horassemanales = $this->input->post('horassemanales');
+
+			$motivo_egreso = $this->input->post('motivo_egreso');
+			$tipo_cc = $this->input->post('tipo_cc');
+			$seccion = $this->input->post('seccion');
+			$situacion_laboral = $this->input->post('situacion_laboral');
+			$clase = $this->input->post('clase');
+			$codigo_ine = $this->input->post('codigo_ine');
+			$zona_brecha = $this->input->post('zona_brecha');
+			
+
 			
 
 			
@@ -1334,6 +1364,15 @@ public function editar_trabajador(){
 			
 			$date = DateTime::createFromFormat('d/m/Y', $fecha_inicio_vacaciones);
 			$fecha_inicio_vacaciones = $date->format('Ymd');			
+
+			$date = DateTime::createFromFormat('d/m/Y', $fecrealcontrato);
+			$fecrealcontrato = $date->format('Ymd');			
+
+
+			$date = DateTime::createFromFormat('d/m/Y', $primervenc);
+			$primervenc = $date->format('Ymd');			
+
+
 
 			if($fecafp !=null){
 
@@ -1422,6 +1461,15 @@ public function editar_trabajador(){
 								'nrocontratoapv' => $numero_contrato_apv,
 								'tipocotapv' => $tipo_cotizacion,
 								'cotapv' => $cotapv,
+								'id_motivo_egreso' => $motivo_egreso,
+								'id_tipocc' => $tipo_cc,
+								'id_seccion' => $seccion,
+								'id_situacion' => $situacion_laboral,
+								'id_clase' => $clase,
+								'id_ine' => $codigo_ine,
+								'id_zona' => $zona_brecha,
+								'fecrealcontrato' => $fecrealcontrato,
+								'primervenc' => $primervenc,
 
 								
 
