@@ -1083,6 +1083,51 @@ public function mod_trabajador($rut = null,$idtrabajador = null)
 	}
 
 
+	public function validate_sueldo_minimo($data = '')
+	{
+
+		if($this->ion_auth->is_allowed($this->router->fetch_class(),$this->router->fetch_method())){
+			$sueldobase = str_replace(".","",$this->input->post('sueldobase'));
+			$horassemanales = $this->input->post('horassemanales');
+			
+			$parttime = $this->input->post('parttime');
+
+			$this->load->model('admin');
+			$parametros_generales = $this->admin->get_parametros_generales(); 
+
+			$valor_hora = $parametros_generales->sueldominimo/45;
+			$sueldominimo_proporcional = (int)($valor_hora*$horassemanales);
+
+			if($parttime == 'on'){
+				$data['result'] = "ok";
+			}else{
+				//if($sueldobase < $parametros_generales->sueldominimo){
+				if($sueldobase < $sueldominimo_proporcional){
+					$data['result'] = "error";
+					$data['fields']['sueldobase'] = "Sueldo Base no puede ser menor a Sueldo M&iacute;nimo";	
+				}else{
+					$data['result'] = "ok";
+				}
+			}
+
+			echo json_encode($data);
+
+		}else{
+			$content = array(
+						'menu' => 'Error 403',
+						'title' => 'Error 403',
+						'subtitle' => '403 error');
+
+
+			$vars['content_menu'] = $content;				
+			$vars['content_view'] = 'forbidden';
+			$this->load->view('template',$vars);
+
+		}
+
+	}	
+
+
 	public function add_trabajador($idtrabajador = null)
 	{
 
@@ -1314,7 +1359,17 @@ public function editar_trabajador(){
 			$semana_corrida = $this->input->post('semana_corrida');
 			$fecafp = $this->input->post('datepicker5');
 			$fecafc = $this->input->post('datepicker6');
-			$seguro_cesantia = $this->input->post('seguro_cesantia') == 'on' ? 1 : 0;;
+			$fecvencplan = $this->input->post('datepicker9');
+			$fecapvc = $this->input->post('datepicker10');
+			$fectermsubsidio = $this->input->post('datepicker11');
+
+			
+			//var_dump($fecvencplan); exit;
+			
+			$seguro_cesantia = $this->input->post('seguro_cesantia') == 'on' ? 1 : 0;
+			$parttime = $this->input->post('parttime') == 'on' ? 1 : 0;
+
+			
 			$region = $this->input->post('region');
 			$comuna = $this->input->post('comuna');
 
@@ -1340,6 +1395,18 @@ public function editar_trabajador(){
 			$clase = $this->input->post('clase');
 			$codigo_ine = $this->input->post('codigo_ine');
 			$zona_brecha = $this->input->post('zona_brecha');
+			$numero_fun = $this->input->post('numero_fun');
+
+
+
+			$rut_pago = str_replace(".","",$this->input->post("rutfp"));
+			$arrayRutPago = explode("-",$rut_pago);
+			$nombre_pago = $this->input->post('nombrefp');
+			$email_pago = $this->input->post('emailfp');
+			$usuario_windows = $this->input->post('usuario_windows');
+
+			
+			
 			
 
 			
@@ -1347,30 +1414,96 @@ public function editar_trabajador(){
 			
 
 			
+			if($fecingreso !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecingreso);
+				$fecingreso = $date->format('Ymd');
+			}else{
+				$fecingreso = null;
+				//$seguro_cesantia =0;
+			}
 
-			$date = DateTime::createFromFormat('d/m/Y', $fecingreso);
-			$fecingreso = $date->format('Ymd');
+			if($fecha_retiro !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecha_retiro);
+				$fecha_retiro = $date->format('Ymd');
+			}else{
+				$fecha_retiro = null;
+				//$seguro_cesantia =0;
+			}
 
-			$date = DateTime::createFromFormat('d/m/Y', $fecha_retiro);
-			$fecha_retiro = $date->format('Ymd');
+			if($fecha_finiquito !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecha_finiquito);
+				$fecha_finiquito = $date->format('Ymd');
+			}else{
+				$fecha_finiquito = null;
+				//$seguro_cesantia =0;
+			}
+
+			if($fecnacimiento !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecnacimiento);
+				$fecnacimiento = $date->format('Ymd');
+			}else{
+				$fecnacimiento = null;
+				//$seguro_cesantia =0;
+			}
 
 
-			$date = DateTime::createFromFormat('d/m/Y', $fecha_finiquito);
-			$fecha_finiquito = $date->format('Ymd');
+			if($fecha_inicio_vacaciones !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecha_inicio_vacaciones);
+				$fecha_inicio_vacaciones = $date->format('Ymd');			
+			}else{
+				$fecha_inicio_vacaciones = null;
+				//$seguro_cesantia =0;
+			}
 
 
-			$date = DateTime::createFromFormat('d/m/Y', $fecnacimiento);
-			$fecnacimiento = $date->format('Ymd');
-			
-			$date = DateTime::createFromFormat('d/m/Y', $fecha_inicio_vacaciones);
-			$fecha_inicio_vacaciones = $date->format('Ymd');			
+			if($fecrealcontrato !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecrealcontrato);
+				$fecrealcontrato = $date->format('Ymd');			
+			}else{
+				$fecrealcontrato = null;
+				//$seguro_cesantia =0;
+			}
 
-			$date = DateTime::createFromFormat('d/m/Y', $fecrealcontrato);
-			$fecrealcontrato = $date->format('Ymd');			
 
 
-			$date = DateTime::createFromFormat('d/m/Y', $primervenc);
-			$primervenc = $date->format('Ymd');			
+			if($primervenc !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $primervenc);
+				$primervenc = $date->format('Ymd');			
+			}else{
+				$primervenc = null;
+				//$seguro_cesantia =0;
+			}
+
+
+
+			if($fecvencplan !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecvencplan);
+				$fecvencplan = $date->format('Ymd');			
+			}else{
+				$fecvencplan = null;
+				//$seguro_cesantia =0;
+			}
+
+
+
+			if($fecapvc !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fecapvc);
+				$fecapvc = $date->format('Ymd');			
+			}else{
+				$fecapvc = null;
+				//$seguro_cesantia =0;
+			}
+
+
+
+
+			if($fectermsubsidio !=null){
+				$date = DateTime::createFromFormat('d/m/Y', $fectermsubsidio);
+				$fectermsubsidio = $date->format('Ymd');			
+			}else{
+				$fectermsubsidio = null;
+				//$seguro_cesantia =0;
+			}
 
 
 
@@ -1470,7 +1603,17 @@ public function editar_trabajador(){
 								'id_zona' => $zona_brecha,
 								'fecrealcontrato' => $fecrealcontrato,
 								'primervenc' => $primervenc,
+								'fun' => $numero_fun,
+								'fecvencplan' => $fecvencplan,
+								'fecapvc' => $fecapvc,
+								'fectermsubsidio' => $fectermsubsidio,
+	       						'rut_pago' => $idtrabajador == 0 ? $arrayRutPago[0] : "",
+	       						'dv_pago' => $idtrabajador == 0 ? $arrayRutPago[1] : "",								
+								'nombre_pago' => $nombre_pago,
+								'email_pago' => $email_pago,
+								'usuario_windows' => $usuario_windows,
 
+								
 								
 
 								
@@ -1484,7 +1627,7 @@ public function editar_trabajador(){
 								'diasvactomados' => 0,
 								'diasprogtomados' => 0,
 								
-								'parttime' => 0,
+								'parttime' => $parttime,
 								//'pensionado' => 0,
 								'diastrabajo' => $diastrabajo,
 								'horasdiarias' => $horasdiarias,

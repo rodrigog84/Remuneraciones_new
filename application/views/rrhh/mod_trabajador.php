@@ -15,12 +15,12 @@
 <!--sub-heard-part-->	
 								<div class="sub-heard-part">
 									<ul class="nav nav-tabs">
-  										<li class="active"><a href="#datospersonales" data-toggle="tab">Datos Personales </a></li>
-  										<li><a href="#datosempresa" data-toggle="tab"> Datos Empresa</a></li>
-  										<li><a href="#datosllss" data-toggle="tab">L.L.S.S</a></li>
-  										<li><a href="#pago" data-toggle="tab">Forma Pago</a></li>
-  										<li><a href="#otros" data-toggle="tab">Otros</a></li>
-  										<li><a href="#configuracion" data-toggle="tab">Configuraciones</a></li>
+  										<li class="active"><a href="#datospersonales" data-toggle="tab">Datos Personales&nbsp;&nbsp;<i class="fa"></i> </a></li>
+  										<li><a href="#datosempresa" data-toggle="tab"> Datos Empresa&nbsp;&nbsp;<i class="fa"></i></a></li>
+  										<li><a href="#datosllss" data-toggle="tab">L.L.S.S&nbsp;&nbsp;<i class="fa"></i></a></li>
+  										<li><a href="#pago" data-toggle="tab">Forma Pago&nbsp;&nbsp;<i class="fa"></i></a></li>
+  										<li><a href="#otros" data-toggle="tab">Otros&nbsp;&nbsp;<i class="fa"></i></a></li>
+  										<li><a href="#configuracion" data-toggle="tab">Configuraciones&nbsp;&nbsp;<i class="fa"></i></a></li>
 									</ul>
 								</div>
 								<!--//sub-heard-part-->
@@ -49,7 +49,7 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Rut Trabajador</label>
-								                             	<input type="text" name="rut" id="rut"  class="form-control"  placeholder="98123456-7" title="Escriba Rut" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" required oninput="checkRut(this)"" >
+								                             	<input type="text" name="rut" id="rut"  class="form-control"  placeholder="98123456-7" title="Escriba Rut" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" oninput="checkRut(this)"" >
 								                            </div>
 								                          </div>
 								                          <div class='col-md-6'>
@@ -65,13 +65,13 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Nombre Completo</label>
-								                             	<input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre Completo" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" required>
+								                             	<input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre Completo" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" >
 								                            </div>
 								                          </div>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                                <label for="nombre">Apellido Parterno</label>  
-								                                 <input type="text" name="apaterno" class="form-control" id="apaterno" placeholder="Apellido Parterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" required>
+								                                 <input type="text" name="apaterno" class="form-control" id="apaterno" placeholder="Apellido Parterno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" >
 								                            </div>
 								                          </div>
 
@@ -81,7 +81,7 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Apellido Materno</label>
-								                             	<input type="text" name="amaterno" class="form-control" id="amaterno" placeholder="Apellido Materno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" required>
+								                             	<input type="text" name="amaterno" class="form-control" id="amaterno" placeholder="Apellido Materno" onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toUpperCase()" >
 								                            </div>
 								                          </div>
 								                          <div class='col-md-6'>
@@ -498,7 +498,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div> 
-								                                 <input placeholder="Fecha Ingreso" class="form-control" id="datepicker2" name="datepicker2" type="text" value="" required>
+								                                 <input placeholder="Fecha Ingreso" class="form-control mask_date" id="datepicker2" name="datepicker2" type="text" value=""  data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 								                                 </div>
 								                            </div>
 								                          </div>
@@ -512,7 +512,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-								                             	<input placeholder="Fecha Retiro" class="form-control" id="fecha_retiro" name="fecha_retiro" type="text" value="" >
+								                             	<input placeholder="Fecha Retiro" class="form-control mask_date" id="fecha_retiro" name="fecha_retiro" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask >
 								                             	</div>
 								                            </div>
 								                          </div>
@@ -523,7 +523,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-								                                 <input placeholder="Fecha de Finiquito" class="form-control" id="datepicker4"  name="datepicker4" type="text" value="">
+								                                 <input placeholder="Fecha de Finiquito" class="form-control mask_date" id="datepicker4"  name="datepicker4" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 								                                 </div>
 								                            </div>
 								                          </div>
@@ -537,7 +537,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-								                             	<input placeholder="Fecha Inicio Vacaciones" class="form-control" id="fecha_inicio_vacaciones" name="fecha_inicio_vacaciones"   size="30" type="text" value="" >
+								                             	<input placeholder="Fecha Inicio Vacaciones" class="form-control mask_date" id="fecha_inicio_vacaciones" name="fecha_inicio_vacaciones"   size="30" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 								                             	</div>
 								                            </div>
 								                          </div>
@@ -691,7 +691,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="Fecha Real" class="form-control" id="fecha_real" name="fecha_real" type="text" value="" >
+																<input placeholder="Fecha Real" class="form-control mask_date" id="fecha_real" name="fecha_real" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 																</div>
 
 								                            </div>
@@ -703,12 +703,21 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="1er Vencimiento" class="form-control" id="vencimiento_1" name="vencimiento_1" type="text" value="" >
+																<input placeholder="1er Vencimiento" class="form-control mask_date" id="vencimiento_1" name="vencimiento_1" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 																</div>
 								                            </div>
 								                          </div>
 							                        </div>							                        					       
-                
+							                        <div class='row'>
+							                          
+							                          <div class='col-md-6'>
+							                            <div class="form-group">
+							                              <label for="parttime">Part Time</label> <br>
+							                              <input type="checkbox" name="parttime" id="parttime" class="minimal" <?php echo $datos_form['parttime'] == 1 ? "checked" : ""; ?> />   
+
+							                            </div>  
+							                          </div>
+							                        </div>                
 
 												</section>
 											</div>
@@ -753,7 +762,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="Fecha Incorp.AFP" class="form-control" id="datepicker5" name="datepicker5" type="text" value="" >		
+																<input placeholder="Fecha Incorp.AFP" class="form-control mask_date" id="datepicker5" name="datepicker5" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>		
 															</div>										
 
 								                            </div>
@@ -773,7 +782,15 @@
 								                          <div class='col-md-6'>
 									                           <div class="form-group">
 								                              <label for="rut">Fecha Ingreso AFC</label>
-																<input placeholder="Fecha Ingreso AFC" class="form-control" id="datepicker6" name="datepicker6" type="text" value="" disabled >														
+								                              <div class="input-group">
+								                                <div class="input-group-addon">
+								                                  <span class="glyphicon glyphicon-calendar"></span>
+								                                </div>
+																<input placeholder="Fecha Ingreso AFC" class="form-control  mask_date" id="datepicker6" name="datepicker6" type="text" value="" disabled data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>		
+															</div>	
+
+
+																													
 
 								                            </div>
 								                          </div>
@@ -827,7 +844,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="Vencimiento Plan" class="form-control" id="datepicker9" type="text" value="" >
+																<input placeholder="Vencimiento Plan" class="form-control mask_date" id="datepicker9" name="datepicker9" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 															</div>
 								                            </div>
 								                          </div>
@@ -875,7 +892,7 @@
 								                          </div>
 								                          <div class='col-md-6'>
 									                           <div class="form-group">
-								                              <label for="rut">Nro. Cargas Simles</label>
+								                              <label for="rut">Nro. Cargas Simples</label>
 																<input type="number" name="asig_individual" class="form-control cargas_familiares" id="asig_individual" placeholder="">
 								                            </div>
 								                          </div>								                          
@@ -925,7 +942,7 @@
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Estado APVC</label>
-																<input type="text" name="estado_apvc" class="form-control" id="estado_apvc" placeholder="Estado APVC">
+																<input type="text" name="estado_apvc" class="form-control" id="estado_apvc" placeholder="Estado APVC" >
 								                            </div>
 								                          </div>
 								                          <div class='col-md-6'>
@@ -935,7 +952,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="Fecha APVC" class="form-control" id="datepicker10" type="text" value="" >
+																<input placeholder="Fecha APVC" class="form-control mask_date" id="datepicker10" name="datepicker10" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask >
 																</div>
 								                            </div>
 								                          </div>
@@ -950,7 +967,7 @@
 								                                <div class="input-group-addon">
 								                                  <span class="glyphicon glyphicon-calendar"></span>
 								                                </div>
-																<input placeholder="Término de Subsidio" class="form-control" id="datepicker11" type="text" value="" >
+																<input placeholder="Término de Subsidio" class="form-control mask_date" id="datepicker11" name="datepicker11" type="text" value="" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
 																</div>
 								                            </div>
 								                          </div>
@@ -962,7 +979,7 @@
 								                          </div>
 
 							                        </div>
-							                        <div class='row'>
+							                        <!--div class='row'>
 								                          <div class='col-md-6'>
 								                            <div class="form-group">
 								                              <label for="rut">Jornada de Trabajo</label>
@@ -976,7 +993,7 @@
 								                            </div>
 								                          </div>
 
-							                        </div>
+							                        </div-->
 
 												</section>
 											</div>
@@ -1405,11 +1422,31 @@ $(document).ready(function(){
         				$("#polera").val(this.tallapolera);
         				$("#pantalon").val(this.tallapantalon);
         				$("#titulo").val(this.titulo);
-        				$("#licencia").val(this.idlicencia);
-        				$("#estudios").val(this.idestudio);
+
+        				if(this.idlicencia == 0){
+        					$("#licencia").val('');	
+        				}else{
+        					$("#licencia").val(this.idlicencia);	
+        				}
+
+
+
+        				if(this.idestudio == 0){
+        					$("#estudios").val('');	
+        				}else{
+        					$("#estudios").val(this.idestudio);	
+        				}
+
         				$("#fono").val(this.fono);
         				$("#numero_contrato_apv").val(this.nrocontratoapv);
-        				$("#apv").val(this.instapv);
+
+        				if(this.instapv == 0){
+        					$("#apv").val('');	
+        				}else{
+        					$("#apv").val(this.instapv);	
+        				}
+
+
         				$("#tipo_cotizacion").val(this.tipocotapv);
         				$("#monto_cotizacion_apv").val(this.cotapv);
         				$("#monto_pactado").val(this.valorpactado);
@@ -1420,8 +1457,12 @@ $(document).ready(function(){
         					$("#categoria").val(this.id_categoria);	
         				}
 
+        				if(this.id_lugar_pago == 0){
+        					$("#lugar_pago").val('');	
+        				}else{
+        					$("#lugar_pago").val(this.id_lugar_pago);	
+        				}
         				
-        				$("#lugar_pago").val(this.id_lugar_pago);
         				$("#sindicato").val(this.sindicato);
         				$("#jubilado").val(this.jubilado);
         				$("#regimen_pago").val(this.rol_privado);
@@ -1432,11 +1473,21 @@ $(document).ready(function(){
         				$("#numficha").val(this.numficha);
         				$("#datepicker5").val(this.fecafp);
         				$("#datepicker6").val(this.fecafc);
+        				$("#datepicker9").val(this.fecvencplan);
+        				$("#datepicker10").val(this.fecapvc);
+        				$("#datepicker11").val(this.fectermsubsidio);
+
+        				
         				$("#region").val(this.idregion);
         				
         				$("#asig_individual").val(this.cargassimples);
         				$("#asig_por_invalidez").val(this.cargasinvalidas);
         				$("#asig_maternal").val(this.cargasmaternales);
+
+        				var cargas = parseInt(this.cargassimples) + parseInt(this.cargasinvalidas) + parseInt(this.cargasmaternales);
+
+
+
         				$("#banco").val(this.idbanco);
         				$("#forma_pago").val(this.id_forma_pago);
         				$("#cta_bancaria").val(this.nrocuentabanco);
@@ -1446,33 +1497,117 @@ $(document).ready(function(){
         				$("#movilizacion").val(this.movilizacion);
         				$("#colacion").val(this.colacion);
         				$("#tipocontrato").val(this.tipocontrato);
+
+
+
+
         				$("#motivo_egreso").val(this.id_motivo_egreso);
-        				$("#tipo_cc").val(this.id_tipocc);
-        				$("#seccion").val(this.id_seccion);
-        				$("#situacion_laboral").val(this.id_situacion);
-        				$("#clase").val(this.id_clase);
-        				$("#codigo_ine").val(this.id_ine);
-        				$("#zona_brecha").val(this.id_zona);
+        				if(this.id_motivo_egreso == 0){
+        					$("#motivo_egreso").val('');
+        				}else{
+        					$("#motivo_egreso").val(this.id_motivo_egreso);	
+        				}
+
+
+        				
+        				if(this.id_seccion == 0){
+        					$("#seccion").val('');
+        				}else{
+        					$("#seccion").val(this.id_seccion);	
+        				}
+
+        				if(this.id_situacion == 0){
+        					$("#situacion_laboral").val('');
+        				}else{
+        					$("#situacion_laboral").val(this.id_situacion);	
+        				}
+
+
+        				if(this.id_clase == 0){
+        					$("#clase").val('');
+        				}else{
+        					$("#clase").val(this.id_clase);	
+        				}
+
+
+        				if(this.id_tipocc == 0){
+        					$("#tipo_cc").val('');
+        				}else{
+        					$("#tipo_cc").val(this.id_tipocc);	
+        				}
+
+        				if(this.id_ine == 0){
+        					$("#codigo_ine").val('');
+        				}else{
+        					$("#codigo_ine").val(this.id_ine);	
+        				}
+
+
+        				if(this.id_zona == 0){
+        					$("#zona_brecha").val('');
+        				}else{
+        					$("#zona_brecha").val(this.id_zona);	
+        				}
+
+
+        				$("#numero_fun").val(this.fun);
+        				$("#rutfp").val(this.rut_pago);
+        				$("#nombrefp").val(this.nombre_pago);
+        				$("#emailfp").val(this.email_pago);
+        				$("#diastrabajo").val(this.diastrabajo);
+        				$("#horasdiarias").val(this.horasdiarias);
+        				$("#horassemanales").val(this.horassemanales);
+        				$("#usuario_windows").val(this.usuario_windows);
+        				if(this.idjefe == 0){
+        					$("#jefe").val('');
+        				}else{
+        					$("#jefe").val(this.idjefe);	
+        				}
+        				
+        				if(this.idreemplazo == 0){
+        					$("#reemplazo").val('');
+        				}else{
+        					$("#reemplazo").val(this.idreemplazo);	
+        				}
+        				
+        				
+
         				
         				
         				$("#idcomuna").val(this.idcomuna);
-						//console.log(this.idcomuna);
+						
         				
         				if (this.pensionado ==1){
         					//$("#pensionado").val(this.pensionado)
-        					$("#pensionado").attr('checked','checked');
+        					//$("#pensionado").prop('checked','checked');
+        					$("#pensionado").iCheck('check');
 
         				}else{
-        					$("#pensionado").attr('checked',false);
+        					//$("#pensionado").prop('checked',false);
+        					$("#pensionado").iCheck('uncheck');
+        				}        				
+
+						if (this.parttime ==1){
+        					//$("#pensionado").val(this.pensionado)
+        					//$("#pensionado").prop('checked','checked');
+        					$("#parttime").iCheck('check');
+
+        				}else{
+        					//$("#pensionado").prop('checked',false);
+        					$("#parttime").iCheck('uncheck');
         				}        				
 
         				if (this.segcesantia ==1){
         					$("#seguro_cesantia").val(this.segcesantia)
-        					document.getElementById("seguro_cesantia").checked = true;
+        					//document.getElementById("seguro_cesantia").checked = true;
+        					$("#seguro_cesantia").iCheck('check');
         					document.getElementById("datepicker6").disabled=false;
 
         				}else{
-        					document.getElementById("seguro_cesantia").checked = false;
+        					//document.getElementById("seguro_cesantia").checked = false;
+        					$("#seguro_cesantia").iCheck('uncheck');
+        					
+        					$('#datepicker6').val('');
         					document.getElementById("datepicker6").disabled=true;
         				}
 
@@ -1483,6 +1618,13 @@ $(document).ready(function(){
         				}else{
         					$('#gratificacion').prop('disabled','disabled');
         				}
+        				
+						if(cargas > 0){
+						    $('#tramo').attr('disabled',false);
+						  }else{
+						    $("#tramo").prop('selectedIndex', 0);
+						    $('#tramo').attr('disabled',true);
+						  }        				
         				
         				$('#gratificacion').mask('000.000.000.000.000', {reverse: true});
         				$('#movilizacion').mask('000.000.000.000.000', {reverse: true});
@@ -1557,7 +1699,7 @@ $('.cargas_familiares').on('input',function(){
     num_cargas_familiares += cargas;
     //console.log($(this).attr('id'));
   });
-  console.log(num_cargas_familiares);
+  
   if(num_cargas_familiares > 0){
     $('#tramo').attr('disabled',false);
   }else{
@@ -1626,7 +1768,7 @@ $("#seguro_cesantia").on('ifUnchecked',function(event){
 <!--script src="js/jquery-ui.js"></script-->
 <script>
 	$(function() {
-		$( "#datepicker,#datepicker2,#datepicker3,#datepicker4,#datepicker5,#datepicker6,#datepicker7,#datepicker8,#datepicker9,#datepicker10,#datepicker11,#datepicker12,#feriados,#fecha_real,#vencimiento_1,#fecha_inicio_vacaciones,#fecha_retiro").datepicker( {dateFormat: "dd/mm/yy"});
+		$( "#datepicker,#datepicker3,#datepicker7,#datepicker8,#datepicker12,#feriados").datepicker( {dateFormat: "dd/mm/yy"});
 	});
 
 
@@ -1716,5 +1858,721 @@ function checkRut(rut) {
     // Si todo sale bien, eliminar errores (decretar que es válido)
     rut.setCustomValidity('');
 }
+
+
+
+$(document).ready(function() {
+
+ $('#basicBootstrapForm').formValidation({
+        framework: 'bootstrap',
+        excluded: ':disabled',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            rut: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Rut Trabajador es requerido'
+                    },
+                    stringLength: {
+                        min: 0,
+                        max: 12,
+                        message: 'El largo del Rut es Incorrecto'
+                    },
+                   /* validateRut: {
+                      message: 'Rut Incorrecto'
+                    }*/
+
+                }
+            },
+			numficha: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'N&uacute;mero de Ficha es requerido'
+                  }
+             }
+            },
+           nombre: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nombre Trabajador es requerido'
+                    }
+                }
+            },
+
+            apaterno: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Apellido Paterno Trabajador es requerido'
+                    }
+                }
+            },
+
+            amaterno: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Apellido Materno Trabajador es requerido'
+                    }
+                }
+            },
+
+            fechanacimiento: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha de Nacimiento es requerido'
+                    }                    
+                }
+            },
+            nacionalidad: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nacionalidad es requerida'
+                    }
+                }
+            },
+
+            ecivil: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Estado Civil es requerido'
+                    }
+                }
+            },
+
+            sexo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Sexo es requerido'
+                    }
+                }
+            },
+
+            direccion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Direcci&oacute;n Trabajador es requerida'
+                    }
+                }
+            },
+
+            region: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Regi&oacute;n Comunidad es requerido'
+                    }
+                }
+            },
+
+            comuna: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Comuna es requerida'
+                    }
+                }
+            },
+
+            tiporenta: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tipo Renta es requerido'
+                    }
+                }
+            },            
+
+            cargo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Cargo es requerido'
+                    }
+                }
+            }, 
+
+            centro_costo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Centro de Costo es requerido'
+                    }
+                }
+            },
+            // FIN VALIDACIONES PRIMERA PESTAÑA
+
+
+            sueldo_base: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Sueldo Base es requerido'
+                    }
+                }
+            },
+
+			tipogratificacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tipo Gratificaci&oacute;n es requerido'
+                    }
+                }
+            },
+            
+            gratificacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Monto Gratificaci&oacute;n es requerido'
+                    }
+                }
+            },
+
+            movilizacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Monto Movilizaci&oacute;n es requerido'
+                    }
+                }
+            },
+
+            colacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Monto Colaci&oacute;n es requerido'
+                    }
+                }
+            },
+
+            datepicker2: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha de Ingreso es requerido'
+                    }                    
+                }
+            },
+
+
+            fecha_retiro: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    }                  
+                }
+            },
+
+
+            datepicker4: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    }                  
+                }
+            },
+
+            fecha_inicio_vacaciones: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        min: 'datepicker2',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha Inicio C&aacute;lculo de vacaciones es requerido'
+                    }                    
+                }
+            },
+
+             vacaciones_legales: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Saldo inicial de vacaciones legales es requerido'
+                    },
+                    numeric: {
+                        separator: '.',
+                        message: 'Saldo inicial de vacaciones legales s&oacute;lo puede contener n&uacute;meros'
+                    }                 
+                },
+
+            },
+
+
+           vacaciones_progresivas: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Saldo inicial de vacaciones progresivas es requerido'
+                    },
+                    numeric: {
+                        separator: '.',
+                        message: 'Saldo inicial de vacaciones progresivas s&oacute;lo puede contener n&uacute;meros'
+                    }                 
+                },
+
+            },
+
+
+			tipocontrato: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tipo de Contrato es requerido'
+                    }
+                }
+            },     
+
+
+            fecha_real: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha Real de Contrato es requerido'
+                    }                    
+                }
+            },         
+
+
+            vencimiento_1: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    }                  
+                }
+            },
+
+
+			   
+            // FIN VALIDACIONES SEGUNDA PESTAÑA
+            afp: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Afp es requerida'
+                    }
+                }
+            },   
+
+
+            datepicker5: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha de Ingreso AFP es requerido'
+                    }                    
+                }
+            },      
+
+
+            datepicker6: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha de Ingreso AFC es requerido'
+                    }                    
+                }
+            },
+
+            isapre: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Isapre es requerida'
+                    }
+                }
+            },  
+
+
+            monto_pactado: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Monto Pactado es requerido'
+                    }
+                }
+            },  
+
+            asig_individual: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. Cargas Simples es requerido'
+                    }
+                }
+            }, 
+
+            asig_por_invalidez: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. Cargas Inv&aacute;lidas es requerido'
+                    }
+                }
+            }, 
+
+
+            asig_maternal: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. Cargas Maternales es requerido'
+                    }
+                }
+            },
+             
+
+
+            tramo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tramo es requerido'
+                    }
+                }
+            },
+
+
+            tramo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tramo es requerido'
+                    }
+                }
+            },
+
+            diastrabajo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'D&iacute;as de Trabajo es requerido'
+                    },
+                    between: {
+                        min: 0,
+                        max: 30,
+                        message: 'D&iacute;as de Trabajo debe estar entre 0 y 30'
+                    },
+                }
+            }, 
+
+            horasdiarias: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Horas Diarias es requerido'
+                    },
+                    integer: {
+                        message: 'El valor ingresado no es num&eacute;rico',
+                    },
+                    between: {
+                        min: 0,
+                        max: 24,
+                        message: 'Horas Diarias debe estar entre 0 y 24'
+                    },
+                }
+            }, 
+
+            horassemanales: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Horas Semanales es requerido'
+                    },
+                    integer: {
+                        message: 'El valor ingresado no es num&eacute;rico',
+                    }                    
+                }
+            }, 
+
+           /* fechaafc: {
+                row: '.form-group',
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        min: 'fechaingreso',
+                        message: 'El valor no es una fecha v&aacute;lida'
+                    },
+                    notEmpty: {
+                        message: 'Fecha AFC es requerido'
+                    }                    
+                }
+            },
+
+            cargo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Cargo es requerido'
+                    }
+                }
+            },
+
+            
+
+
+          
+
+
+                      
+
+
+            diastrabajo: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'D&iacute;as de Trabajo es requerido'
+                    },
+                    between: {
+                        min: 0,
+                        max: 30,
+                        message: 'D&iacute;as de Trabajo debe estar entre 0 y 30'
+                    },
+                }
+            },            
+
+            horasdiarias: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Horas Diarias es requerido'
+                    },
+                    integer: {
+                        message: 'El valor ingresado no es num&eacute;rico',
+                    },
+                    between: {
+                        min: 0,
+                        max: 24,
+                        message: 'Horas Diarias debe estar entre 0 y 24'
+                    },
+                }
+            },  
+
+            horassemanales: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Horas Semanales es requerido'
+                    },
+                    integer: {
+                        message: 'El valor ingresado no es num&eacute;rico',
+                    }                    
+                }
+            },                       
+
+
+            sueldobase: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Sueldo Base es requerido'
+                    },
+                    // The bank validator doesn't have any option
+                    blank: {}  
+                }
+                                  
+            },
+
+
+            tipogratificacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tipo de Gratificaci&oacute;n es requerido'
+                    }
+                }
+            },  
+
+            gratificacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Gratificaci&oacute;n es requerido'
+                    },
+                }
+                                  
+            },            
+
+            cargassimples: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. de Cargas Simples es Requerido'
+                    },
+                    greaterThan: {
+                        value: 0,
+                        message: 'El valor debe ser mayor o igual a cero'
+                    }
+                }
+            },  
+
+
+            cargasinvalidas: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. de Cargas Inv&aacute;lidas es Requerido'
+                    },
+                    greaterThan: {
+                        value: 0,
+                        message: 'El valor debe ser mayor o igual a cero'
+                    }
+                }
+            },  
+
+
+            cargasmaternales: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. de Cargas Maternales es Requerido'
+                    },
+                    greaterThan: {
+                        value: 0,
+                        message: 'El valor debe ser mayor o igual a cero'
+                    }
+                }
+            },  
+
+            cargasretroactivas: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Nro. de Cargas Retroactivas es Requerido'
+                    },
+                    greaterThan: {
+                        value: 0,
+                        message: 'El valor debe ser mayor o igual a cero'
+                    }
+                }
+            },  
+
+            asigfamiliar: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Asignaci&oacute;n Familiar es requerido'
+                    },
+                }
+                                  
+            },               
+
+
+            tramo_asigfamiliar: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Tramo Asignaci&oacute;n Familiar es requerido'
+                    },
+                }
+                                  
+            },      
+
+
+            movilizacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Movilizaci&oacute;n es requerido'
+                    }
+                }
+            },
+
+            colacion: {
+                row: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: 'Colaci&oacute;n es requerido'
+                    }
+                }
+            },
+
+
+            */
+        }
+    })
+
+       // Called when a field is invalid
+        .on('err.field.fv', function(e, data) {
+            // data.element --> The field element
+
+            var $tabPane = data.element.parents('.tab-pane'),
+                tabId    = $tabPane.attr('id');
+
+            $('a[href="#' + tabId + '"][data-toggle="tab"]')
+                .parent()
+                .find('i')
+                .removeClass('fa-check')
+                .addClass('fa-times');
+        })
+        // Called when a field is valid
+        .on('success.field.fv', function(e, data) {
+            // data.fv      --> The FormValidation instance
+            // data.element --> The field element
+
+            var $tabPane = data.element.parents('.tab-pane'),
+                tabId    = $tabPane.attr('id'),
+                $icon    = $('a[href="#' + tabId + '"][data-toggle="tab"]')
+                            .parent()
+                            .find('i')
+                            .removeClass('fa-check fa-times');
+
+            // Check if all fields in tab are valid
+            var isValidTab = data.fv.isValidContainer($tabPane);
+            if (isValidTab !== null) {
+                $icon.addClass(isValidTab ? 'fa-check' : 'fa-times');
+            }
+        })
+   
+
+
+	$(".mask_date").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+
+
+   }); 
+
 </script>
 
